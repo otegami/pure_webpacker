@@ -1,0 +1,421 @@
+{
+  "mode": "development",
+  "output": {
+    "filename": "js/[name]-[contenthash].js",
+    "chunkFilename": "js/[name]-[contenthash].chunk.js",
+    "hotUpdateChunkFilename": "js/[id]-[hash].hot-update.js",
+    "path": "/Users/otegami/Coding/rails/pure_webpack/public/packs",
+    "publicPath": "/packs/"
+  },
+  "resolve": {
+    "extensions": [
+      ".jsx",
+      ".mjs",
+      ".js",
+      ".sass",
+      ".scss",
+      ".css",
+      ".module.sass",
+      ".module.scss",
+      ".module.css",
+      ".png",
+      ".svg",
+      ".gif",
+      ".jpeg",
+      ".jpg"
+    ],
+    "plugins": [
+      {
+        "topLevelLoader": {}
+      }
+    ],
+    "modules": [
+      "/Users/otegami/Coding/rails/pure_webpack/app/javascript",
+      "node_modules"
+    ]
+  },
+  "resolveLoader": {
+    "modules": [
+      "node_modules"
+    ],
+    "plugins": [
+      {}
+    ]
+  },
+  "node": {
+    "dgram": "empty",
+    "fs": "empty",
+    "net": "empty",
+    "tls": "empty",
+    "child_process": "empty"
+  },
+  "devtool": "cheap-module-source-map",
+  "entry": {
+    "application": "/Users/otegami/Coding/rails/pure_webpack/app/javascript/packs/application.js",
+    "hello_react": "/Users/otegami/Coding/rails/pure_webpack/app/javascript/packs/hello_react.jsx"
+  },
+  "module": {
+    "strictExportPresence": true,
+    "rules": [
+      {
+        "test": "/(.jpg|.jpeg|.png|.gif|.tiff|.ico|.svg|.eot|.otf|.ttf|.woff|.woff2)$/i",
+        "use": [
+          {
+            "loader": "file-loader",
+            "options": {
+              "esModule": false,
+              "context": "app/javascript"
+            }
+          }
+        ]
+      },
+      {
+        "test": "/\\.(css)$/i",
+        "use": [
+          {
+            "loader": "style-loader"
+          },
+          {
+            "loader": "css-loader",
+            "options": {
+              "sourceMap": true,
+              "importLoaders": 2,
+              "modules": false
+            }
+          },
+          {
+            "loader": "postcss-loader",
+            "options": {
+              "config": {
+                "path": "/Users/otegami/Coding/rails/pure_webpack"
+              },
+              "sourceMap": true
+            }
+          }
+        ],
+        "sideEffects": true,
+        "exclude": "/\\.module\\.[a-z]+$/"
+      },
+      {
+        "test": "/\\.(scss|sass)(\\.erb)?$/i",
+        "use": [
+          {
+            "loader": "style-loader"
+          },
+          {
+            "loader": "css-loader",
+            "options": {
+              "sourceMap": true,
+              "importLoaders": 2,
+              "modules": false
+            }
+          },
+          {
+            "loader": "postcss-loader",
+            "options": {
+              "config": {
+                "path": "/Users/otegami/Coding/rails/pure_webpack"
+              },
+              "sourceMap": true
+            }
+          },
+          {
+            "loader": "sass-loader",
+            "options": {
+              "sourceMap": true,
+              "implementation": {
+                "sassNull": {},
+                "sassTrue": {
+                  "value": true
+                },
+                "sassFalse": {
+                  "value": false
+                },
+                "Logger": {
+                  "silent": {}
+                },
+                "info": "dart-sass\t1.49.7\t(Sass Compiler)\t[Dart]\ndart2js\t2.15.1\t(Dart Compiler)\t[Dart]",
+                "types": {},
+                "NULL": {},
+                "TRUE": {
+                  "value": true
+                },
+                "FALSE": {
+                  "value": false
+                }
+              },
+              "sassOptions": {
+                "includePaths": []
+              }
+            }
+          }
+        ],
+        "sideEffects": true,
+        "exclude": "/\\.module\\.[a-z]+$/"
+      },
+      {
+        "test": "/\\.(css)$/i",
+        "use": [
+          {
+            "loader": "style-loader"
+          },
+          {
+            "loader": "css-loader",
+            "options": {
+              "sourceMap": true,
+              "importLoaders": 2,
+              "modules": {
+                "localIdentName": "[name]__[local]___[hash:base64:5]"
+              }
+            }
+          },
+          {
+            "loader": "postcss-loader",
+            "options": {
+              "config": {
+                "path": "/Users/otegami/Coding/rails/pure_webpack"
+              },
+              "sourceMap": true
+            }
+          }
+        ],
+        "sideEffects": false,
+        "include": "/\\.module\\.[a-z]+$/"
+      },
+      {
+        "test": "/\\.(scss|sass)$/i",
+        "use": [
+          {
+            "loader": "style-loader"
+          },
+          {
+            "loader": "css-loader",
+            "options": {
+              "sourceMap": true,
+              "importLoaders": 2,
+              "modules": {
+                "localIdentName": "[name]__[local]___[hash:base64:5]"
+              }
+            }
+          },
+          {
+            "loader": "postcss-loader",
+            "options": {
+              "config": {
+                "path": "/Users/otegami/Coding/rails/pure_webpack"
+              },
+              "sourceMap": true
+            }
+          },
+          {
+            "loader": "sass-loader",
+            "options": {
+              "sourceMap": true
+            }
+          }
+        ],
+        "sideEffects": false,
+        "include": "/\\.module\\.[a-z]+$/"
+      },
+      {
+        "test": "/\\.(js|mjs)$/",
+        "include": "/node_modules/",
+        "exclude": "/(?:@?babel(?:\\/|\\\\{1,2}|-).+)|regenerator-runtime|core-js|^webpack$|^webpack-assets-manifest$|^webpack-cli$|^webpack-sources$|^@rails\\/webpacker$/",
+        "use": [
+          {
+            "loader": "babel-loader",
+            "options": {
+              "babelrc": false,
+              "presets": [
+                [
+                  "@babel/preset-env",
+                  {
+                    "modules": false
+                  }
+                ]
+              ],
+              "cacheDirectory": true,
+              "cacheCompression": false,
+              "compact": false,
+              "sourceMaps": false
+            }
+          }
+        ]
+      },
+      {
+        "test": "/\\.(js|jsx|mjs|ts|tsx)?(\\.erb)?$/",
+        "include": [
+          "/Users/otegami/Coding/rails/pure_webpack/app/javascript"
+        ],
+        "exclude": "/node_modules/",
+        "use": [
+          {
+            "loader": "babel-loader",
+            "options": {
+              "cacheDirectory": true,
+              "cacheCompression": false,
+              "compact": false
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "plugins": [
+    {
+      "keys": [
+        "BUNDLER_ORIG_PATH",
+        "RBENV_VERSION",
+        "MANPATH",
+        "SSH_AGENT_PID",
+        "NODENV_SHELL",
+        "TERM_PROGRAM",
+        "NODENV_DIR",
+        "GEM_HOME",
+        "BUNDLER_ORIG_MANPATH",
+        "SHELL",
+        "TERM",
+        "BUNDLER_ORIG_GEM_HOME",
+        "TMPDIR",
+        "HOMEBREW_REPOSITORY",
+        "DOCKER_HOST",
+        "TERM_PROGRAM_VERSION",
+        "BUNDLER_ORIG_BUNDLER_VERSION",
+        "ORIGINAL_XDG_CURRENT_DESKTOP",
+        "TERM_SESSION_ID",
+        "NODENV_ROOT",
+        "NODENV_HOOK_PATH",
+        "USER",
+        "COMMAND_MODE",
+        "RBENV_ROOT",
+        "SSH_AUTH_SOCK",
+        "__CF_USER_TEXT_ENCODING",
+        "RBENV_HOOK_PATH",
+        "BUNDLER_ORIG_RUBYLIB",
+        "BUNDLER_ORIG_RUBYOPT",
+        "PATH",
+        "RUBY_CONFIGURE_OPTS",
+        "RBENV_ORIG_PATH",
+        "LaunchInstanceID",
+        "__CFBundleIdentifier",
+        "PWD",
+        "BUNDLER_ORIG_GEM_PATH",
+        "LANG",
+        "XPC_FLAGS",
+        "VSCODE_GIT_ASKPASS_EXTRA_ARGS",
+        "NODE_ENV",
+        "RBENV_SHELL",
+        "XPC_SERVICE_NAME",
+        "HOME",
+        "SHLVL",
+        "BUNDLE_GEMFILE",
+        "VSCODE_GIT_ASKPASS_MAIN",
+        "RAILS_ENV",
+        "HOMEBREW_PREFIX",
+        "WEBPACKER_CONFIG",
+        "RBENV_DIR",
+        "BUNDLER_ORIG_BUNDLE_GEMFILE",
+        "LOGNAME",
+        "NODENV_VERSION",
+        "LC_CTYPE",
+        "VSCODE_GIT_IPC_HANDLE",
+        "INFOPATH",
+        "HOMEBREW_CELLAR",
+        "GIT_ASKPASS",
+        "VSCODE_GIT_ASKPASS_NODE",
+        "RUBYOPT",
+        "BUNDLER_ORIG_BUNDLE_BIN_PATH",
+        "BUNDLE_BIN_PATH",
+        "BUNDLER_ORIG_RB_USER_INSTALL",
+        "SECURITYSESSIONID",
+        "RUBYLIB",
+        "BUNDLER_VERSION",
+        "COLORTERM"
+      ],
+      "defaultValues": {
+        "BUNDLER_ORIG_PATH": "/Users/otegami/.rbenv/versions/3.0.3/bin:/opt/homebrew/Cellar/rbenv/1.2.0/libexec:/Users/otegami/.nodenv/shims:/Users/otegami/.rbenv/shims:/Users/otegami/.yarn/bin:/Users/otegami/bin:/Users/otegami/.nodenv/bin:/usr/local/bin/git:/Users/otegami/.rbenv/bin:/usr/local/opt/openssl@1.1/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/otegami/.rbenv/bin:/Users/otegami/.rbenv/shims:/Users/otegami/.nodenv/shims:/Users/otegami/.yarn/bin:/Users/otegami/bin:/Users/otegami/.nodenv/bin:/usr/local/bin/git:/usr/local/opt/openssl@1.1/bin:/opt/homebrew/bin:/opt/homebrew/sbin",
+        "RBENV_VERSION": "3.0.3",
+        "MANPATH": "/opt/homebrew/share/man:/usr/share/man:/usr/local/share/man:/opt/homebrew/share/man:",
+        "SSH_AGENT_PID": "3159",
+        "NODENV_SHELL": "zsh",
+        "TERM_PROGRAM": "vscode",
+        "NODENV_DIR": "/Users/otegami/Coding/rails/pure_webpack/node_modules/.bin",
+        "GEM_HOME": "/Users/otegami/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0",
+        "BUNDLER_ORIG_MANPATH": "/opt/homebrew/share/man:/usr/share/man:/usr/local/share/man:/opt/homebrew/share/man:",
+        "SHELL": "/bin/zsh",
+        "TERM": "xterm-256color",
+        "BUNDLER_ORIG_GEM_HOME": "BUNDLER_ENVIRONMENT_PRESERVER_INTENTIONALLY_NIL",
+        "TMPDIR": "/var/folders/6p/bz3n_ks93112hmz0tlvy0v240000gn/T/",
+        "HOMEBREW_REPOSITORY": "/opt/homebrew",
+        "DOCKER_HOST": "tcp://127.0.0.1:2375",
+        "TERM_PROGRAM_VERSION": "1.63.2",
+        "BUNDLER_ORIG_BUNDLER_VERSION": "BUNDLER_ENVIRONMENT_PRESERVER_INTENTIONALLY_NIL",
+        "ORIGINAL_XDG_CURRENT_DESKTOP": "undefined",
+        "TERM_SESSION_ID": "40AF2DC1-0E37-4DF4-8A58-D3FE661169BB",
+        "NODENV_ROOT": "/Users/otegami/.nodenv",
+        "NODENV_HOOK_PATH": "/Users/otegami/.nodenv/nodenv.d:/opt/homebrew/Cellar/nodenv/1.4.0/nodenv.d:/opt/homebrew/etc/nodenv.d:/etc/nodenv.d:/usr/lib/nodenv/hooks",
+        "USER": "otegami",
+        "COMMAND_MODE": "unix2003",
+        "RBENV_ROOT": "/Users/otegami/.rbenv",
+        "SSH_AUTH_SOCK": "/var/folders/6p/bz3n_ks93112hmz0tlvy0v240000gn/T//ssh-Oi0tWiBrmaqw/agent.3158",
+        "__CF_USER_TEXT_ENCODING": "0x1F5:0x0:0x0",
+        "RBENV_HOOK_PATH": "/Users/otegami/.rbenv/rbenv.d:/opt/homebrew/Cellar/rbenv/1.2.0/rbenv.d:/opt/homebrew/etc/rbenv.d:/usr/local/etc/rbenv.d:/etc/rbenv.d:/usr/lib/rbenv/hooks",
+        "BUNDLER_ORIG_RUBYLIB": "/opt/homebrew/Cellar/rbenv/1.2.0/rbenv.d/exec/gem-rehash:",
+        "BUNDLER_ORIG_RUBYOPT": "BUNDLER_ENVIRONMENT_PRESERVER_INTENTIONALLY_NIL",
+        "PATH": "/Users/otegami/.nodenv/versions/16.13.0/bin:/opt/homebrew/Cellar/nodenv/1.4.0/libexec:/Users/otegami/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/bin:/Users/otegami/.rbenv/versions/3.0.3/bin:/opt/homebrew/Cellar/rbenv/1.2.0/libexec:/Users/otegami/.nodenv/shims:/Users/otegami/.rbenv/shims:/Users/otegami/.yarn/bin:/Users/otegami/bin:/Users/otegami/.nodenv/bin:/usr/local/bin/git:/Users/otegami/.rbenv/bin:/usr/local/opt/openssl@1.1/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin",
+        "RUBY_CONFIGURE_OPTS": "--with-openssl-dir=/opt/homebrew/opt/openssl@1.1",
+        "RBENV_ORIG_PATH": "/Users/otegami/.nodenv/shims:/Users/otegami/.rbenv/shims:/Users/otegami/.yarn/bin:/Users/otegami/bin:/Users/otegami/.nodenv/bin:/usr/local/bin/git:/Users/otegami/.rbenv/bin:/usr/local/opt/openssl@1.1/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/otegami/.rbenv/bin:/Users/otegami/.rbenv/shims:/Users/otegami/.nodenv/shims:/Users/otegami/.yarn/bin:/Users/otegami/bin:/Users/otegami/.nodenv/bin:/usr/local/bin/git:/usr/local/opt/openssl@1.1/bin:/opt/homebrew/bin:/opt/homebrew/sbin",
+        "LaunchInstanceID": "68B98FFC-C9A8-49B7-83A6-DABC1CCB6BE1",
+        "__CFBundleIdentifier": "com.microsoft.VSCode",
+        "PWD": "/Users/otegami/Coding/rails/pure_webpack",
+        "BUNDLER_ORIG_GEM_PATH": "BUNDLER_ENVIRONMENT_PRESERVER_INTENTIONALLY_NIL",
+        "LANG": "en_US.UTF-8",
+        "XPC_FLAGS": "0x0",
+        "VSCODE_GIT_ASKPASS_EXTRA_ARGS": "--ms-enable-electron-run-as-node",
+        "NODE_ENV": "development",
+        "RBENV_SHELL": "zsh",
+        "XPC_SERVICE_NAME": "0",
+        "HOME": "/Users/otegami",
+        "SHLVL": "2",
+        "BUNDLE_GEMFILE": "/Users/otegami/Coding/rails/pure_webpack/Gemfile",
+        "VSCODE_GIT_ASKPASS_MAIN": "/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/git/dist/askpass-main.js",
+        "RAILS_ENV": "development",
+        "HOMEBREW_PREFIX": "/opt/homebrew",
+        "WEBPACKER_CONFIG": "/Users/otegami/Coding/rails/pure_webpack/config/webpacker.yml",
+        "RBENV_DIR": "/Users/otegami/Coding/rails/pure_webpack/bin",
+        "BUNDLER_ORIG_BUNDLE_GEMFILE": "/Users/otegami/Coding/rails/pure_webpack/Gemfile",
+        "LOGNAME": "otegami",
+        "NODENV_VERSION": "16.13.0",
+        "LC_CTYPE": "UTF-8",
+        "VSCODE_GIT_IPC_HANDLE": "/var/folders/6p/bz3n_ks93112hmz0tlvy0v240000gn/T/vscode-git-d99bc67497.sock",
+        "INFOPATH": "/opt/homebrew/share/info:/opt/homebrew/share/info:",
+        "HOMEBREW_CELLAR": "/opt/homebrew/Cellar",
+        "GIT_ASKPASS": "/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/git/dist/askpass.sh",
+        "VSCODE_GIT_ASKPASS_NODE": "/Applications/Visual Studio Code.app/Contents/MacOS/Electron",
+        "RUBYOPT": "-r/Users/otegami/.rbenv/versions/3.0.3/lib/ruby/3.0.0/bundler/setup",
+        "BUNDLER_ORIG_BUNDLE_BIN_PATH": "BUNDLER_ENVIRONMENT_PRESERVER_INTENTIONALLY_NIL",
+        "BUNDLE_BIN_PATH": "/Users/otegami/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/bundler-2.2.32/libexec/bundle",
+        "BUNDLER_ORIG_RB_USER_INSTALL": "BUNDLER_ENVIRONMENT_PRESERVER_INTENTIONALLY_NIL",
+        "SECURITYSESSIONID": "186a5",
+        "RUBYLIB": "/opt/homebrew/Cellar/rbenv/1.2.0/rbenv.d/exec/gem-rehash",
+        "BUNDLER_VERSION": "2.2.32",
+        "COLORTERM": "truecolor"
+      }
+    },
+    {
+      "options": {},
+      "logger": {},
+      "pathCache": {},
+      "fsOperations": 0,
+      "primed": false
+    },
+    {
+      "options": {
+        "filename": "css/[name]-[contenthash:8].css",
+        "ignoreOrder": false,
+        "chunkFilename": "css/[name]-[contenthash:8].chunk.css"
+      }
+    },
+    {}
+  ]
+}
