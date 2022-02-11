@@ -1,5 +1,9 @@
 {
+  // https://webpack.js.org/configuration/mode/
+  // 必須
   "mode": "development",
+  // https://webpack.js.org/configuration/output/
+  // 必須
   "output": {
     "filename": "js/[name]-[contenthash].js",
     "chunkFilename": "js/[name]-[contenthash].chunk.js",
@@ -7,6 +11,8 @@
     "path": "/Users/otegami/Coding/rails/pure_webpack/public/packs",
     "publicPath": "/packs/"
   },
+  // https://webpack.js.org/configuration/resolve/
+  // 必須
   "resolve": {
     "extensions": [
       ".jsx",
@@ -34,6 +40,8 @@
       "node_modules"
     ]
   },
+  // https://webpack.js.org/configuration/resolve/#resolveloader
+  // 必須
   "resolveLoader": {
     "modules": [
       "node_modules"
@@ -42,6 +50,9 @@
       {}
     ]
   },
+  // https://webpack.js.org/configuration/node/
+  // この記法は webpack v5 以上では利用できない
+  // 不要
   "node": {
     "dgram": "empty",
     "fs": "empty",
@@ -49,13 +60,22 @@
     "tls": "empty",
     "child_process": "empty"
   },
+  // https://webpack.js.org/configuration/devtool/
+  // 利用できる tool の候補はいくつかあるが、特に好みはないのでこのままで良さそう
+  // 必須
   "devtool": "cheap-module-source-map",
   "entry": {
     "application": "/Users/otegami/Coding/rails/pure_webpack/app/javascript/packs/application.js",
     "hello_react": "/Users/otegami/Coding/rails/pure_webpack/app/javascript/packs/hello_react.jsx"
   },
+  // https://webpack.js.org/configuration/resolve/#resolveloader
+  // 必須
   "module": {
+    // https://webpack.js.org/configuration/module/#moduleparserjavascriptexportspresence
+    // こちらの設定は現在非推奨な設定らしい ^の設定を代わりにすると良さそう
     "strictExportPresence": true,
+    // loader 系の設定が行われているが、ここはアプリごとに変更する必要がある
+    // ただ、設定周りは参考になりそう
     "rules": [
       {
         "test": "/(.jpg|.jpeg|.png|.gif|.tiff|.ico|.svg|.eot|.otf|.ttf|.woff|.woff2)$/i",
@@ -261,6 +281,16 @@
       }
     ]
   },
+  // https://webpack.js.org/configuration/plugins/
+  // webpacker では下記の plugin が利用されている
+  // https://github.com/rails/webpacker/blob/e0c998e2aa7f096709eaa2a7f2d7e29d413abed3/package/environments/base.js#L29
+  // - EnvironmentPlugin: あったら便利そう
+  //   - https://webpack.js.org/plugins/environment-plugin/
+  // - CaseSensitivePathsPlugin: 必須
+  //   - https://github.com/Urthen/case-sensitive-paths-webpack-plugin
+  // - MiniCssExtractPlugin: 正直わからない
+  //   - https://webpack.js.org/plugins/mini-css-extract-plugin/
+  // - WebpackAssetsManifest: 必須
   "plugins": [
     {
       "keys": [
