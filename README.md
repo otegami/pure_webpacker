@@ -1,24 +1,12 @@
-# README
+# Webpacker をはずして pure な Webpack 構成に変更
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+- いつも参考にさせていただいている `hakozaru` さんのブログを読みながら実際に手を動かしてみる
+  - ref: <https://hakozaru.com/posts/purge-webpacker-1>
 
-Things you may want to cover:
+## 動機
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+- tailwindcss 3.0 を導入しようとしたところ、PostCSS 8 を入れる必要があった
+- Webpack 構成では、postcss-loader v4.0.3 以上が必要である
+  - <https://github.com/postcss/postcss/wiki/PostCSS-8-for-end-users#webpack>
+- しかし、Webpacker の依存関係で、postcss-loader v3.0.0 で固定されてしまっていた
+- 今後も考えると、素の Webpack の方が何かと便利そうなので、外せる予行練習をしたくなったため
