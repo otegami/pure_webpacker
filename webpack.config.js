@@ -11,8 +11,8 @@ module.exports = {
   },
   output: {
     filename: "js/[name]-[contenthash].js",
-    chunkFilename: "js/[name]-[contenthash].chunk.js",
-    hotUpdateChunkFilename: "js/[id]-[hash].hot-update.js",
+    chunkFilename: "js/[name]-[chunkhash].chunk.js",
+    hotUpdateChunkFilename: "js/[id]-[fullhash].hot-update.js",
     path: path.resolve(__dirname, "./public/packs"),
     publicPath: isProd ? "/packs/" : "//localhost:8080/packs/",
   },
@@ -33,6 +33,24 @@ module.exports = {
       {
         test: /\.png$/,
         type: "asset/resource"
+      },
+      {
+        test: /\.(sass|css)$/,
+        use: [
+          "style-loader",
+          {
+            loader: "css-loader",
+            options: {
+              sourceMap: !isProd
+            }
+          },
+          {
+            loader: "postcss-loader",
+            options: {
+              sourceMap: !isProd
+            }
+          },
+        ]
       },
       {
         test: /\.(ts|tsx)$/,
@@ -64,5 +82,6 @@ module.exports = {
     static: {
       directory: path.resolve(__dirname, "public/packs"),
     }
-  }
+  },
+  devtool: 'source-map'
 }

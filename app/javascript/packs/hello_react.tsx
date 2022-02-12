@@ -5,6 +5,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import Img from '../images/webpack-png.png'
+import '../stylesheets/main.css'
 
 type Props = {
   name: string
@@ -12,7 +13,9 @@ type Props = {
 
 const Hello = (props: Props) => (
   <>
-    <div>Hello {props.name}!</div>
+    <div className="text-5xl font-bold underline">
+      Hello {props.name}!
+    </div>
     <img src={Img} width='300px' />
   </>
 )
