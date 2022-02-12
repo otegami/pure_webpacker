@@ -31,6 +31,10 @@ module.exports = {
     },
     rules: [
       {
+        test: /\.png$/,
+        type: "asset/resource"
+      },
+      {
         test: /\.(ts|tsx)$/,
         use: [
           {
