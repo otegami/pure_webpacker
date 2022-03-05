@@ -16,6 +16,7 @@ gem 'sass-rails', '>= 6'
 gem 'simpacker'
 
 gem 'jsbundling-rails'
+gem 'cssbundling-rails'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
